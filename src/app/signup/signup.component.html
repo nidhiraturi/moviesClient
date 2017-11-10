@@ -1,0 +1,127 @@
+<app-nav></app-nav>
+<body class="bg">
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+			
+					<form class="" method="post" action="#"  [formGroup]="registerForm" >
+						
+						<!-- <div class="form-group">
+							
+						<label for="typeUser" class="cols-sm-2 control-label">type:</label>
+						<div class="cols-sm-10">
+							<select formControlName="typeUser" placeholder="select type of user" class="form-control selectpicker">
+								<option disabled selected value="" >Select User</option>
+								<option value="1">Super Admin</option>
+								<option value="2">Admin</option>
+								<option value="3">User</option>
+								
+							</select>
+						</div>
+					</div> -->
+
+
+						<div class="form-group">
+								<small  class="check" *ngIf="registerForm.controls['name'].hasError('required')"  style = "color:red">*</small>
+							<label for="name" class="cols-sm-2 control-label">Your Name</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" formControlName="name" class="form-control" [(ngModel)]="name" name="name" id="name" placeholder="Enter your Name"/>
+
+						</div>
+						<div class="check" *ngIf="registerForm.controls['name'].hasError('minlength')">Should be atleast of 5 characters.</div>
+						<div class="check" *ngIf="registerForm.controls['name'].hasError('maxlength')">Should be atleast of 5 characters.</div>
+						 <div class="check" *ngIf="registerForm.controls['name'].hasError('pattern')">Should be only characters.</div> 
+
+
+					
+					
+					
+								</div>
+							</div>
+						
+
+						<div class="form-group">
+								<small  class="check" *ngIf="registerForm.controls['email'].hasError('required')"  style = "color:red">*</small>
+							<label for="email" class="cols-sm-2 control-label">Your Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text"  formControlName="email" class="form-control" name="email" id="email"   placeholder="Enter your Email"/>
+								</div>
+			
+								
+		 <div class="check" *ngIf="registerForm.controls['email'].hasError('pattern')">check the email again..it must contain . and @</div> 
+
+
+							</div>
+						</div>
+
+
+						<div class="form-group">
+								<small  class="check" *ngIf="registerForm.controls['mobileNumber'].hasError('required')"  style = "color:red">*</small>
+							<label for="email" class="cols-sm-2 control-label">Your Mobile no.</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="number" maxlength="10"  formControlName="mobileNumber" class="form-control"    placeholder="Enter your Mob.no"/>
+								</div>
+								
+								
+								<div class="check" *ngIf="registerForm.controls['mobileNumber'].hasError('pattern')">must be of 10 digits and must start with 7/8/9</div> 	
+								
+							</div>
+						</div>
+
+						<div class="form-group">
+								<small  class="check" *ngIf="registerForm.controls['userName'].hasError('required')"  style = "color:red">*</small>
+							<label for="username" class="cols-sm-2 control-label">Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" formControlName="userName" class="form-control" name="username" [(ngModel)]=username id="username"  placeholder="Enter your Username"/>
+								</div>
+								<div class="check" *ngIf="registerForm.controls['userName'].hasError('pattern')">check the username again</div> 					
+							</div>
+						</div>
+
+						<div class="form-group">
+								<small  class="check" *ngIf="registerForm.controls['password'].hasError('required')"  style = "color:red">*</small>
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" formControlName="password" class="form-control" name="password" [(ngModel)]=userpass id="password"   placeholder="Enter your Password"/>
+								</div>
+								<div class="check" *ngIf="registerForm.controls['password'].hasError('minlength')">Should be atleast of 5 characters.</div>
+								<div class="check" *ngIf="registerForm.controls['password'].hasError('maxlength')">Should be atleast of 5 characters.</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+								<small  class="check" *ngIf="registerForm.controls['confirmPassword'].hasError('required')"  style = "color:red">*</small>
+							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" formControlName="confirmPassword" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
+								</div>
+								<div class="check" *ngIf="registerForm.controls['confirmPassword'].hasError('minlength')">Should be atleast of 5 characters.</div>
+								
+								<div class="check" *ngIf="registerForm.controls['confirmPassword'].hasError('maxlength')">Should be atleast of 5 characters.</div>
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<button  class="btn btn-success" (click)="RegisterUser()">Register</button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		</body>
+		<app-footer></app-footer>

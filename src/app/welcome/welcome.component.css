@@ -1,0 +1,164 @@
+img{max-width:70%;}
+*{transition: all .5s ease;-moz-transition: all .5s ease;-webkit-transition: all .5s ease}
+.my-list {
+width: 100%;
+padding: 10px;
+border: 1px solid #f5efef;
+float: left;
+margin: 15px 0;
+border-radius: 5px;
+box-shadow: 2px 3px 0px #e4d8d8;
+position:relative;
+overflow:hidden;
+}
+.my-list h3{
+text-align: left;
+font-size: 14px;
+font-weight: 500;
+line-height: 21px;
+margin: 0px;
+padding: 0px;
+border-bottom: 1px solid #ccc4c4;
+margin-bottom: 5px;
+padding-bottom: 5px;
+}
+.my-list span{float:left;font-weight: bold;}
+.my-list span:last-child{float:right;}
+.my-list .offer{
+width: 100%;
+float: left;
+margin: 5px 0;
+border-top: 1px solid #ccc4c4;
+margin-top: 5px;
+padding-top: 5px;
+color: #afadad;
+}
+.detail {
+position: absolute;
+top: -107%;
+left: 0;
+text-align: center;
+background: #fff;height: 100%;width:100%;
+
+}
+
+.my-list:hover .detail{top:0;}
+
+.all
+{
+    background:lightpink;
+}
+
+@import url('http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css');
+.navbar-toggle {
+     margin-left: 0px;
+    border-color: transparent;
+    padding: 2px;
+    border: 1px none transparent;
+}
+.nav-toggle-left {
+    float: left;
+    margin-left: 15px;
+}
+.dropdown-pull-right {
+    float: right !important;
+    right: 0;
+    left: auto;
+  }
+  
+  .dropdown-pull-right>.dropdown-menu {
+    right: 0;
+    left: auto;
+  }
+  .navbar-brand {
+    padding: 0px;
+  }
+  .navbar-brand>img {
+    height: 60px;
+    width:100px
+   
+  }
+  
+  #category{
+background-color: chartreuse;
+font-family: Courier New, Courier, monospace
+  }
+
+
+  .table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+		width:20%;
+		display: inline !important;
+	}
+	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}
+	
+	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}
+	
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+	table#cart tbody tr td:first-child { background: #333; color: #fff; }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
+}
+.hello{
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}

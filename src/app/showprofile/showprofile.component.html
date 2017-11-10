@@ -1,0 +1,93 @@
+
+   <div class="navbar navbar-default navbar-static-top" id="nav-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle nav-toggle-left" data-toggle="collapse" data-target="#navbar-ex-collapse">
+            <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-fw fa-navicon"></i></button>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-src-collapse">
+            <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-fw fa-search"></i></button>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-crt-collapse">
+            <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-fw fa-shopping-cart"></i></button>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-lgn-collapse">
+            <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-fw fa-user"></i></button>
+        </div>
+        <div>
+          <a class="navbar-brand"  href=""><img src="assets/logo.jpg" alt="Dispute Bills">
+          </a>
+        </div>
+        <div >
+            <div class="col-sm-1 collapse navbar-collapse" id="navbar-ex-collapse">
+            <!-- <div class="col-sm-1 collapse navbar-collapse" id="navbar-lgn-collapse"> -->
+              <ul class="nav navbar-nav">
+            <li><h3> Welcome, <mark>{{username|uppercase}}</mark></h3></li>
+            </ul>
+        </div>
+     
+        <div class="dropdown dropdown-pull-right btn-group">
+        <div class="col-sm-1 collapse navbar-collapse" id="navbar-lgn-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="/showprofile">My Profile<span class="glyphicon glyphicon-user pull-right"></span></a></li>
+                <li class="divider"></li>
+                <li><a href="editprofile">Edit Profile <span class="glyphicon glyphicon-edit pull-right"></span></a></li>
+                <li class="divider"></li>
+                
+                <li><a href="">Log out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+              </ul>
+            </li>
+          </ul>
+          </div>
+          </div>
+       
+        
+        
+        <div class="collapse navbar-collapse" id="navbar-src-collapse">
+          <form class="navbar-form navbar-right" role="">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
+     
+        
+      </div>
+    </div>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="assets/img.jpg" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                          {{name}}</h4>
+                      
+                        <p>
+                            <i class="glyphicon glyphicon-envelope"></i>{{email}}
+                            <br />
+                           
+                            <i class="glyphicon glyphicon-gift"></i>Username:{{username}}</p>
+                        <!-- Split button -->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
