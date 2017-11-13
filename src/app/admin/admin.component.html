@@ -87,9 +87,9 @@
                 <br>
                 <hr>
                 <div class="text-center">
-                    <a class="btn btn-success" href="#seriesModal" data-toggle="modal"><i class="glyphicon glyphicon-eye-open"></i> Series</a>
-                    <a class="btn btn-success" href="#seasonModal" data-toggle="modal"><i class="glyphicon glyphicon-eye-open"></i> Season</a>
-                    <a class="btn btn-success" href="#episodeModal" data-toggle="modal"><i class="glyphicon glyphicon-eye-open"></i>Episode</a>
+                    <a class="btn btn-success" href="#seriesModal" data-toggle="modal">Add Series</a>
+                    <a class="btn btn-success" href="#seasonModal" data-toggle="modal">Add Season</a>
+                    <a class="btn btn-success" href="#episodeModal" data-toggle="modal">Add Episode</a>
                 </div>
                 <!-- Modal -->
                 <div class="modal fade" id="seriesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -439,9 +439,12 @@
 
         </div>
     </div>
+    
+    <button type="button" class="btn btn-danger pull-left" (click)="toAdminComponent()" data-dismiss="modal"><i class="glyphicon glyphicon-eye-open"></i>show Movie</button><br>
+    
 
-
-    <div class="container">
+    <div class="container" *ngIf="updateFlag==1">
+            <h1> Movies Listing</h1>
         <div class="row">
 
 
@@ -469,7 +472,7 @@
                             <tbody *ngFor="let movie of movies">
                                 <tr>
                                     <td align="center">
-                                        <button class="btn btn-default" (click)="getMovieById(movie.movieId)" data-toggle="modal" data-target="#edit"><em class="fa fa-pencil"></em></button>
+                                        <button class="btn btn-default" (click)="getMovieById1(movie.movieId)" data-toggle="modal" data-target="#edit"><em class="fa fa-pencil"></em></button>
                                         <button class="btn btn-danger" (click)="deleteMovie(movie.movieId)"><em class="fa fa-trash"></em></button>
                                     </td>
                                     <td class="hidden-xs">{{movie.movieId}}</td>
@@ -493,7 +496,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
                     <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
                 </div>
-                <div *ngFor="let movie of movies">
+                <div *ngFor="let movie of movies1">
                     <div class="modal-body">
                         <form class="" method="post" action="#" [formGroup]="updateForm">
 
@@ -516,7 +519,9 @@
 
     </div>
 
-    <div class="container">
+<button type="button" class="btn btn-danger pull-left" (click)="toFlagComponent()" data-dismiss="modal"><i class="glyphicon glyphicon-eye-open"></i>show Series</button>
+    <div class="container" *ngIf="seriesFlag==1">
+            <h1> Series Listing</h1>
         <div class="row">
 
 

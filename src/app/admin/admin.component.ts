@@ -36,30 +36,30 @@ seasonForm:FormGroup
   ngOnInit() {
     this.movieForm = this.formBuilder.group({
       
-      categoryType: [''],
-      movieName:[''],
-      movieImagePath:['']
+      categoryType: ['',Validators.required],
+      movieName:['',Validators.required],
+      movieImagePath:['',Validators.required]
       // typeUser: ['']
      
     })
     this.seriesForm = this.formBuilder.group({
       
-      categoryType: [''],
-      seriesName:[''],
-      seriesImagePath:[''],
-      updatedDate:[''],
-      createdDate:['']
+      categoryType: ['',Validators.required],
+      seriesName:['',Validators.required],
+      seriesImagePath:['',Validators.required],
+      updatedDate:['',Validators.required],
+      createdDate:['',Validators.required]
       // typeUser: ['']
      
     })
 
     this.seasonForm = this.formBuilder.group({
       
-      seriesType: [''],
-      seasonName:[''],
-      seasonImagePath:[''],
-      updatedDate:[''],
-      createdDate:['']
+      seriesType: ['',Validators.required],
+      seasonName:['',Validators.required],
+      seasonImagePath:['',Validators.required],
+      updatedDate:['',Validators.required],
+      createdDate:['',Validators.required]
       
       // typeUser: ['']
      
@@ -67,19 +67,19 @@ seasonForm:FormGroup
 
     this.episodeForm = this.formBuilder.group({
       
-      seriesType: [''],
-      seasonType:[''],
-      episodeName:[''],
-      episodeImagePath:[''],
-      updatedDate:[''],
-      createdDate:['']
+      seriesType: ['',Validators.required],
+      seasonType:['',Validators.required],
+      episodeName:['',Validators.required],
+      episodeImagePath:['',Validators.required],
+      updatedDate:['',Validators.required],
+      createdDate:['',Validators.required]
       // typeUser: ['']
      
     })
     this.categoryForm=this.formBuilder.group({
       
-      categoryName: [''],
-      categoryType:[''],
+      categoryName: ['',Validators.required],
+      categoryType:['',Validators.required],
    
     })
 
@@ -192,6 +192,10 @@ addCategory()
 //function to add movie in db
 addMovie()
 {
+  if(this.movieForm.value.movieName==" ")
+  {
+    alert("please fill all the fields")
+  }
   console.log("in addMovie")
   this._api.postMovie(this.movieForm.value).subscribe(
     data => {
@@ -260,13 +264,23 @@ getMovieById(movieId)
   console.log(movieId)
   this._api.getMoviesById(movieId).subscribe(
     data => {
-      this.movies = data
-      
+      this.func(data)
     }
 
 
    
   )
+
+}
+func(data){
+  this.movies = data
+}
+movies1 = [];
+getMovieById1(movieId)
+{
+  console.log(this.movies)
+  this.movies1= this.movies.filter(movie => movie.movieId == movieId); 
+
 
 }
 
@@ -277,7 +291,7 @@ updateMovie(seriesId)
   console.log("in updateMovie",this.updateForm.value.movieName)
   this._api.UpdateMovie(seriesId,this.updateForm.value.movieName).subscribe(
     data => {
-      this.category = data
+      this.movies = this.movies.filter(movie => movie.movieName !== this.updateForm.value.movieName); 
       
     }
    
@@ -294,6 +308,17 @@ postEpisode()
     }
    
   )
+}
+updateFlag=0;
+toAdminComponent()
+{
+  this.updateFlag=1;
+}
+
+seriesFlag=0;
+toFlagComponent()
+{
+this.seriesFlag=1;
 }
 
  }

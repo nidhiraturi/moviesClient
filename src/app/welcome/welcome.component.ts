@@ -111,4 +111,7 @@ export class WelcomeComponent implements OnInit {
 
     this.route.navigate(['movie'])
   }
+  logout(){
+    localStorage.clear();
+  }
 }
