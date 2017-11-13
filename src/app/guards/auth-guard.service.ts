@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
     }
     canActivate(route: ActivatedRouteSnapshot) {
         var x = route.data;
-        if (x[0].loginStatus == localStorage.getItem("loginStatus")) {
+        if (x[0].typeUser == localStorage.getItem("typeUser")) {
           return true;
         }
         else {

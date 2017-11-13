@@ -1,0 +1,85 @@
+<div class="navbar navbar-default navbar-static-top" id="nav-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle nav-toggle-left" data-toggle="collapse" data-target="#navbar-ex-collapse">
+          <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-fw fa-navicon"></i></button>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-src-collapse">
+          <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-fw fa-search"></i></button>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-crt-collapse">
+          <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-fw fa-shopping-cart"></i></button>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-lgn-collapse">
+          <span class="sr-only">Toggle navigation</span><i class="fa fa-2x fa-fw fa-user"></i></button>
+    </div>
+    
+    <div>
+      <div class="col-sm-1 collapse navbar-collapse" id="navbar-ex-collapse">
+        <!-- <div class="col-sm-1 collapse navbar-collapse" id="navbar-lgn-collapse"> -->
+        <ul class="nav navbar-nav">
+          <li>
+            <h3> Welcome</h3>
+          </li>
+          
+        </ul>
+      </div>
+
+      <div class="dropdown dropdown-pull-right btn-group">
+        <div class="col-sm-1 collapse navbar-collapse" id="navbar-lgn-collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Account Settings <span class="glyphicon glyphicon-cog pull-right"></span></a>
+              <ul class="dropdown-menu">
+                <li><a routerLink="/showprofile">My Profile<span class="glyphicon glyphicon-user pull-right"></span></a></li>
+                <li class="divider"></li>
+                <li><a href="editprofile">Edit Profile <span class="glyphicon glyphicon-edit pull-right"></span></a></li>
+                <li class="divider"></li>
+
+                <li><a href="/login" (click)="logout()">Log out <span class="glyphicon glyphicon-log-out pull-right"></span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div></div>
+</div>
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<form class="" method="post" action="#"  [formGroup]="registerForm" >
+<div class="form-group">
+    
+  <label for="typeUser" class="cols-sm-2 control-label">Select Movie Category:</label>
+  <div class="cols-sm-10">
+    <select formControlName="categoryId" placeholder="select type of user" (change)="onCategoryClick()" class="form-control selectpicker">
+      <option disabled selected value="9" >Select Category</option>
+      <option *ngFor='let categorys of category' value="{{categorys.category_id}}" >{{categorys.category_name}}</option>
+      
+      
+    </select>
+  </div>
+</div>
+<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12" *ngFor='let movie of movies'>
+    
+      <div class="my-list">
+
+        <img src="{{movie.movieImagePath}}" alt="dsadas" />
+
+        <h3>{{movie.movieName}}</h3>
+       
+
+        
+        <div class="detail">
+
+          <img src="{{movie.movieImagePath}}" alt="dsadas" />
+          
+        </div>
+      </div>
+    
+  </div> 
+  </form>

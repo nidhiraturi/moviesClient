@@ -1,132 +1,565 @@
-<h1>Admin Panel</h1>
+<!-- ................... -->
+<div class="container">
+    <div class="row">
+        <!-- Carousel -->
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="http://unsplash.s3.amazonaws.com/batch%209/barcelona-boardwalk.jpg" alt="First slide">
+                    <!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                                <span>Welcome to <strong>ADMIN PANEL</strong></span>
+                            </h2>
+                            <br>
 
-<app-nav></app-nav>
-<body class="bg">
-		<div class="container">
-			<div class="row main">
-				<div class="main-login main-center">
-			
-					<form class="" method="post" action="#"  [formGroup]="categoryForm" >
-						
-						<!-- <div class="form-group">
+                            <br>
+                            <div class="">
+                                <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block"
+                                    href="#">Register</a></div>
+                        </div>
+                    </div>
+                    <!-- /header-text -->
+                </div>
+                <div class="item">
+                    <img src="http://unsplash.s3.amazonaws.com/batch%209/barcelona-boardwalk.jpg" alt="Second slide">
+                    <!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                                <span>Welcome to ADMIN PANEL</span>
+                            </h2>
+                            <br>
+
+                            <br>
+                            <div class="">
+                                <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block"
+                                    href="#">Register</a></div>
+                        </div>
+                    </div>
+                    <!-- /header-text -->
+                </div>
+                <div class="item">
+                    <img src="http://unsplash.s3.amazonaws.com/batch%209/barcelona-boardwalk.jpg" alt="Third slide">
+                    <!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                                <span>Welcome to ADMIN PANEL</span>
+                            </h2>
+                            <br>
+
+                            <br>
+
+                        </div>
+                        <!-- /header-text -->
+                    </div>
+                </div>
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+		    	<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+		    	<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+            </div>
+            <!-- /carousel -->
+        </div>
+    </div>
+
+    <!-- -------- -->
+    <div class="container">
+        <div class="row">
+
+            <!--========== First Modal ==========-->
+            <article class="col-md-4 well">
+                <h3 class="page-header text-center">TV series <br />
+                    <small>TV series Form</small>
+                </h3>
+                <br>
+                <hr>
+                <div class="text-center">
+                    <a class="btn btn-success" href="#seriesModal" data-toggle="modal"><i class="glyphicon glyphicon-eye-open"></i> Series</a>
+                    <a class="btn btn-success" href="#seasonModal" data-toggle="modal"><i class="glyphicon glyphicon-eye-open"></i> Season</a>
+                    <a class="btn btn-success" href="#episodeModal" data-toggle="modal"><i class="glyphicon glyphicon-eye-open"></i>Episode</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="seriesModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-success">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">[ × ]</button>
+                                <h2><i class="glyphicon glyphicon-cloud"></i>Series Form</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form class="" method="post" action="#" [formGroup]="seriesForm">
+                                    <div class="form-group">
+
+                                        <table>
+                                            <tr>
+                                                <th>Series Name:</th>
+                                                <td><input formControlName="seriesName" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                                <th>Choose Category:</th>
+                                                <td><select formControlName="categoryType" placeholder="select type of user"
+                                                        (change)="onCategoryClick()" class="form-control selectpicker">
+                    <option disabled selected value="9" >Select Category</option>
+                    <option *ngFor='let categorys of category' value="{{categorys.category_id}}" >{{categorys.category_name}}</option>
+                    
+                    
+                  </select></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Created Date:</th>
+                                                <td><input formControlName="createdDate" type="date"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Updated Date:</th>
+                                                <td><input formControlName="updatedDate" type="date"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Series ImagePath:</th>
+                                                <td><input formControlName="seriesImagePath" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                        </table>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" (click)="postSeries()" data-dismiss="modal">Add Season</button>
+                                <button type="button" class="btn btn-primary pull-right" data-next="modal">Next</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <div class="modal fade" id="seasonModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-success">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">[ × ]</button>
+                                <h2><i class="glyphicon glyphicon-cloud"></i>Season Form</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form class="" method="post" action="#" [formGroup]="seasonForm">
+                                    <div class="form-group">
+
+                                        <table>
+
+                                            <tr>
+                                                <th>Choose Series:</th>
+                                                <td><select formControlName="seriesType" placeholder="select type of user" class="form-control selectpicker">
+                    <option disabled selected value="9" >Select Series</option>
+                    <option *ngFor='let seriess of series' value="{{seriess.seriesId}}" >{{seriess.seriesName}}</option>
+                    
+                    
+                  </select></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Season Name:</th>
+                                                <td><input formControlName="seasonName" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                                <th>Created Date:</th>
+                                                <td><input formControlName="createdDate" type="date"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Updated Date:</th>
+                                                <td><input formControlName="updatedDate" type="date"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Season ImagePath:</th>
+                                                <td><input formControlName="seasonImagePath" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                        </table>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" (click)="postSeason()" data-dismiss="modal">Add Season</button>
+                                <button type="button" class="btn btn-primary pull-right" data-next="modal">Next</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+
+                <div class="modal fade" id="episodeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-success">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">[ × ]</button>
+                                <h2><i class="glyphicon glyphicon-cloud"></i>Episode Form</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form class="" method="post" action="#" [formGroup]="episodeForm">
+                                    <div class="form-group">
+
+                                        <table>
+                                            <tr>
+                                                <th>Episode Name:</th>
+                                                <td><input formControlName="episodeName" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                                <th>Choose Series:</th>
+                                                <td><select formControlName="seriesType" placeholder="select type of user" class="form-control selectpicker">
+                 <option disabled selected value="9" >Select Series</option>
+                 <option *ngFor='let seriess of series' value="{{seriess.seriesId}}" >{{seriess.seriesName}}</option>
+                 
+                 
+               </select></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Choose Season:</th>
+                                                <td><select formControlName="seasonType" placeholder="select type of user" (click)="getSeasonBySeries()"
+                                                        class="form-control selectpicker">
+                 <option disabled selected value="9" >Select Season</option>
+                 <option *ngFor='let seasons of season' value="{{seasons.seasonId}}" >{{seasons.seasonName}}</option>
+                 
+                 
+               </select></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Created Date:</th>
+                                                <td><input formControlName="createdDate" type="date"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Updated Date:</th>
+                                                <td><input formControlName="updatedDate" type="date"></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Episode ImagePath:</th>
+                                                <td><input formControlName="episodeImagePath" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                        </table>
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" (click)="postEpisode()" data-dismiss="modal">Add Episode</button>
+
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </article>
+
+            <!--========== Second Modal ==========-->
+            <article class="col-md-4 well">
+                <h3 class="page-header text-center">Category <br />
+                    <small> category form</small>
+                </h3>
+                <br>
+                <hr>
+                <div class="text-center">
+                    <a class="btn btn-warning" href="#warningModal" data-toggle="modal"><i class="glyphicon glyphicon-briefcase"></i> Add Category</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-warning">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h2><i class="glyphicon glyphicon-user"></i>   Add a New Category</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form class="" method="post" action="#" [formGroup]="categoryForm">
+                                    <div class="form-group">
+                                        <table>
+                                            <tr>
+                                                <th>Category Name:</th>
+                                                <td><input formControlName="categoryName" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                                <th>Type:</th>
+                                                <td><select formControlName="categoryType" placeholder="select type of user">
+							<option disabled selected value="" >Select Category</option>
+							<option value="movie">Movie</option>
+							<option value="tv series">TV Series</option>
 							
-						<label for="typeUser" class="cols-sm-2 control-label">type:</label>
-						<div class="cols-sm-10">
-							<select formControlName="typeUser" placeholder="select type of user" class="form-control selectpicker">
-								<option disabled selected value="" >Select User</option>
-								<option value="1">Super Admin</option>
-								<option value="2">Admin</option>
-								<option value="3">User</option>
-								
-							</select>
-						</div>
-					</div> -->
+							
+						</select>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </form>
 
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="text-center">
+                                <a class="btn btn-warning" href="#movieModal" data-toggle="modal" (click)=addCategory()><i class="glyphicon glyphicon-briefcase"></i> Add Movie</a>
+                                <a class="btn btn-warning" href="#movieModal" data-toggle="modal"><i class="glyphicon glyphicon-briefcase"></i> Add Series</a>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+                <!-- Modal -->
 
-						<div class="form-group">
-								<small  class="check" *ngIf="registerForm.controls['name'].hasError('required')"  style = "color:red">*</small>
-							<label for="name" class="cols-sm-2 control-label">Your Name</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									
-									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-									<input type="text" formControlName="name" class="form-control" [(ngModel)]="name" name="name" id="name" placeholder="Enter your Name"/>
+                <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-warning">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h2><i class="glyphicon glyphicon-user"></i>   Add a New Movie</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form class="" method="post" action="#" [formGroup]="movieForm">
+                                    <div class="form-group">
 
-						</div>
-						<div class="check" *ngIf="registerForm.controls['name'].hasError('minlength')">Should be atleast of 5 characters.</div>
-						<div class="check" *ngIf="registerForm.controls['name'].hasError('maxlength')">Should be atleast of 5 characters.</div>
-						 <div class="check" *ngIf="registerForm.controls['name'].hasError('pattern')">Should be only characters.</div> 
-
-
-					
-					
-					
-								</div>
-							</div>
-						
-
-						<div class="form-group">
-								<small  class="check" *ngIf="registerForm.controls['email'].hasError('required')"  style = "color:red">*</small>
-							<label for="email" class="cols-sm-2 control-label">Your Email</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="text"  formControlName="email" class="form-control" name="email" id="email"   placeholder="Enter your Email"/>
-								</div>
-			
-								
-		 <div class="check" *ngIf="registerForm.controls['email'].hasError('pattern')">check the email again..it must contain . and @</div> 
-
-
-							</div>
-						</div>
-
-
-						<div class="form-group">
-								<small  class="check" *ngIf="registerForm.controls['mobileNumber'].hasError('required')"  style = "color:red">*</small>
-							<label for="email" class="cols-sm-2 control-label">Your Mobile no.</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
-									<input type="number" maxlength="10"  formControlName="mobileNumber" class="form-control"    placeholder="Enter your Mob.no"/>
-								</div>
+                                        <table>
+                                            <tr>
+                                                <th>Movie Name:</th>
+                                                <td><input formControlName="movieName" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                                <th>Choose Category:</th>
+                                                <td><select formControlName="categoryType" placeholder="select type of user"
+                                                        (change)="onCategoryClick()" class="form-control selectpicker">
+								<option disabled selected value="9" >Select Category</option>
+								<option *ngFor='let categorys of category' value="{{categorys.category_id}}" >{{categorys.category_name}}</option>
 								
 								
-								<div class="check" *ngIf="registerForm.controls['mobileNumber'].hasError('pattern')">must be of 10 digits and must start with 7/8/9</div> 	
-								
-							</div>
-						</div>
+							  </select></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Movie ImagePath:</th>
+                                                <td><input formControlName="movieImagePath" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                        </table>
+                                    </div>
 
-						<div class="form-group">
-								<small  class="check" *ngIf="registerForm.controls['userName'].hasError('required')"  style = "color:red">*</small>
-							<label for="username" class="cols-sm-2 control-label">Username</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
-									<input type="text" formControlName="userName" class="form-control" name="username" [(ngModel)]=username id="username"  placeholder="Enter your Username"/>
-								</div>
-								<div class="check" *ngIf="registerForm.controls['userName'].hasError('pattern')">check the username again</div> 					
-							</div>
-						</div>
+                                </form>
 
-						<div class="form-group">
-								<small  class="check" *ngIf="registerForm.controls['password'].hasError('required')"  style = "color:red">*</small>
-							<label for="password" class="cols-sm-2 control-label">Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" formControlName="password" class="form-control" name="password" [(ngModel)]=userpass id="password"   placeholder="Enter your Password"/>
-								</div>
-								<div class="check" *ngIf="registerForm.controls['password'].hasError('minlength')">Should be atleast of 5 characters.</div>
-								<div class="check" *ngIf="registerForm.controls['password'].hasError('maxlength')">Should be atleast of 5 characters.</div>
-							</div>
-						</div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" (click)="addMovie()" data-dismiss="modal">Add Movie</button>
 
-						<div class="form-group">
-								<small  class="check" *ngIf="registerForm.controls['confirmPassword'].hasError('required')"  style = "color:red">*</small>
-							<label for="confirm" class="cols-sm-2 control-label">Confirm Password</label>
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
-									<input type="password" formControlName="confirmPassword" class="form-control" name="confirm" id="confirm"  placeholder="Confirm your Password"/>
-								</div>
-								<div class="check" *ngIf="registerForm.controls['confirmPassword'].hasError('minlength')">Should be atleast of 5 characters.</div>
-								
-								<div class="check" *ngIf="registerForm.controls['confirmPassword'].hasError('maxlength')">Should be atleast of 5 characters.</div>
-							</div>
-						</div>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
 
-						<div class="form-group ">
-							<button  class="btn btn-success" (click)="RegisterUser()">Register</button>
-						</div>
-						
-					</form>
-				</div>
-			</div>
-		</div>
-		
-		</body>
-		<app-footer></app-footer>
-<button class="btn btn-danger btn-sm" (click) = "toNextComponent()" >Add Category</button>
+            </article>
+
+            <!--========== Third Modal ==========-->
+            <article class="col-md-4 well">
+                <h3 class="page-header text-center">Movie <br />
+                    <small>Movie Form</small>
+                </h3>
+                <br>
+                <hr>
+                <div class="text-center">
+                    <a class="btn btn-primary" href="#movieModal" data-toggle="modal"><i class="glyphicon glyphicon-shopping-cart"></i>Add Movie</a>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header modal-header-success">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h2><i class="glyphicon glyphicon-user"></i>   Add a New Movie</h2>
+                            </div>
+                            <div class="modal-body">
+                                <form class="" method="post" action="#" [formGroup]="movieForm">
+                                    <div class="form-group">
+
+                                        <table>
+                                            <tr>
+                                                <th>Movie Name:</th>
+                                                <td><input formControlName="movieName" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                                <th>Choose Category:</th>
+                                                <td><select formControlName="categoryType" placeholder="select type of user"
+                                                        (change)="onCategoryClick()" class="form-control selectpicker">
+                            <option disabled selected value="9" >Select Category</option>
+                            <option *ngFor='let categorys of category' value="{{categorys.category_id}}" >{{categorys.category_name}}</option>
+                            
+                            
+                          </select></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Movie ImagePath:</th>
+                                                <td><input formControlName="movieImagePath" type="text"></td>
+                                            </tr><br>
+                                            <tr>
+                                        </table>
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger pull-left" (click)="addMovie()" data-dismiss="modal">Add Movie</button>
+                                <button type="button" class="btn btn-danger pull-left" (click)="deleteMovie()" data-dismiss="modal">Delete Movie</button>
+                                <button type="button" class="btn btn-danger pull-left" (click)="updateMovie()" data-dismiss="modal">Update Movie</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.modal -->
+            </article>
+
+        </div>
+    </div>
 
 
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-10 col-md-offset-1">
+
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col col-xs-6">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-bordered table-list">
+                            <thead>
+                                <tr>
+                                    <th><em class="fa fa-cog"></em></th>
+                                    <th class="hidden-xs">Movie Id</th>
+                                    <th>Movie Name</th>
+                                    <th>movieImagePath</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let movie of movies">
+                                <tr>
+                                    <td align="center">
+                                        <button class="btn btn-default" (click)="getMovieById(movie.movieId)" data-toggle="modal" data-target="#edit"><em class="fa fa-pencil"></em></button>
+                                        <button class="btn btn-danger" (click)="deleteMovie(movie.movieId)"><em class="fa fa-trash"></em></button>
+                                    </td>
+                                    <td class="hidden-xs">{{movie.movieId}}</td>
+                                    <td>{{movie.movieName}}</td>
+                                    <td>{{movie.movieImagePath}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    <h4 class="modal-title custom_align" id="Heading">Edit Your Detail</h4>
+                </div>
+                <div *ngFor="let movie of movies">
+                    <div class="modal-body">
+                        <form class="" method="post" action="#" [formGroup]="updateForm">
+
+                        <div class="form-group">
+
+                            Movie Name:<input class="form-control " formControlName="movieName" type="text" value="{{movie.movieName}}">
+                        </div>
+                        </form>
+                    </div>
+                    <div>
+                        <div class="modal-footer ">
+                            <button [routerLink]="['/admin']" type="button" class="btn btn-warning btn-lg" style="width: 100%;" (click)="updateMovie(movie.movieId)"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+
+            <div class="col-md-10 col-md-offset-1">
+
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col col-xs-6">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-striped table-bordered table-list">
+                            <thead>
+                                <tr>
+                                    <th><em class="fa fa-cog"></em></th>
+                                    <th class="hidden-xs">Series Id</th>
+                                    <th>Series Name</th>
+                                    <th>Series Image Path</th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let serie of series">
+                                <tr *ngIf="!editMode">
+                                    <td align="center">
+                                        <button class="btn btn-default" (click)="editMode=true"><em class="fa fa-pencil"></em></button>
+                                        <button class="btn btn-danger" (click)="deleteSeries(serie.seriesId)"><em class="fa fa-trash"></em></button>
+                                    </td>
+
+                                    <td class="hidden-xs">{{serie.seriesId}}</td>
+                                    <td>{{serie.seriesName}}</td>
+                                    <td>{{serie.seriesImagePath}}</td>
+
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>

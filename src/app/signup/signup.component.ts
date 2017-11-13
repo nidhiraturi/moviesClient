@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExampleServiceService } from '../example-service.service'
 import { ActivatedRoute, Params } from '@angular/router';
-import { User } from '../user';
+
 import { FormBuilder, FormGroup, FormControl, Validators, FormArray, ReactiveFormsModule } from '@angular/forms';
 
 import { Directive, forwardRef, Attribute, OnChanges, SimpleChanges, Input } from '@angular/core';
@@ -32,12 +32,12 @@ export class SignupComponent implements OnInit {
       mobileNumber: ['', [Validators.required, Validators.pattern('^[7-9][0-9]{9}$')]],
       userName: ['', [Validators.required, Validators.pattern('^[a-z0-9_-]{3,15}$')]],
       password: ['', [Validators.minLength(6), Validators.maxLength(20), Validators.required]],
-      confirmPassword: ['', [Validators.minLength(6), Validators.maxLength(20), Validators.required]],
-      // typeUser: ['']
+      confirmPassword: ['', [Validators.minLength(6), Validators.maxLength(20), Validators.required]]
+      
     })
 
   }
-
+//function to register the user
   RegisterUser() {
     // console.log(this.registerForm.value.typeUser);
 
@@ -53,6 +53,7 @@ export class SignupComponent implements OnInit {
       this.api.createUser(this.registerForm.value).subscribe(data => {
         // console.log(data)
         this.route.navigate(['login'])
+        alert("please verify the email")
       })
     }
   }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { User } from './user';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import { Observable } from 'rxjs/Observable';
@@ -12,27 +12,15 @@ import { Observable } from 'rxjs/Observable';
 export class ExampleServiceService {
   constructor(public _http: Http) { }
 
-  user: User;
+ 
 
-  data12: any;
-  grandTotal: any;
   customer = {};
   userr: any;
-  total;
 
 
-  // getCustomers(val): Observable<any> {
-
-  //   let headers = new Headers();
-  //   headers.append('Content-Type', 'application/json')
-  //   //   headers.append('Authorization', 'Bearer '+ this.JWT )
-  //   let options = new RequestOptions({ headers: headers });
-  //   console.log(val+"from api");
-  //   return this._http.post('http://localhost:8888/api/v1/getCustomer', val, options).map
-  //   (data => data.json());
-  // }
 
 
+//function to get all the customers
   getCustomers(a): Observable<any> {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json')
@@ -55,21 +43,8 @@ export class ExampleServiceService {
     );
   }
 
-  getProductById(item): Observable<any> {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json')
-    let options = new RequestOptions({ headers: headers });
-    console.log(item, typeof (item), "in service");
-    let items = {
-      "item": item
-    }
-    return this._http.post('http://localhost:8888/api/v1/getProductById', items, options).map(
-      data => data.json()
-
-    )
-
-  }
-
+  
+//function to create temporary user
   createUser(form): Observable<any> {
 
     console.log(form)
@@ -82,6 +57,7 @@ export class ExampleServiceService {
     return this._http.post('http://localhost:8888/api/v1/createTempuser', form, options).map(data => { });
   }
 
+  //create verified user
   createUserFinal(code): Observable<any> {
     
         console.log(code)
@@ -96,24 +72,7 @@ export class ExampleServiceService {
         return this._http.post('http://localhost:8888/api/v1/createuser' , codeobj, options).map(data =>data.json()
         );
       }
-  postProduct(form): Observable<any> {
 
-    console.log(form)
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json')
-
-    let options = new RequestOptions({ headers: headers });
-
-    console.log(form);
-    return this._http.post('http://localhost:8888/api/v1/product/create', form, options).map(data => data.json());
-  }
-  postBill(totaldata): Observable<any> {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    console.log(totaldata, "service")
-    let options = new RequestOptions({ headers: headers });
-    return this._http.post('http://localhost:8888/api/v1/Customer/postBill', totaldata, options).map(data => data.json());
-  }
 
   name;
   setUser(userr) {
@@ -125,32 +84,6 @@ export class ExampleServiceService {
     return this.customer;
   }
 
-  setTotal(total) {
-    this.grandTotal = total;
-    console.log(this.grandTotal, "grandtotal in sevice")
-  }
-  getTotal(): any {
-    console.log("total", this.grandTotal)
-    return this.grandTotal;
-  }
-  cart = [];
-  setCart(procart) {
-    this.cart = procart;
-    console.log(this.cart);
-  }
-  getcart(): any {
-
-    return this.cart;
-  }
-  getProductByCategoryId(categoryId): Observable<any> {
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json')
-    let options = new RequestOptions({ headers: headers });
-    console.log(categoryId, "in service");
-    let category_id = {
-      "category_id": categoryId
-    }
-    return this._http.post('http://localhost:8888/api/v1/getProductByCategory', category_id, options).map(data => data.json());
-
-  }
+ 
+  
 }

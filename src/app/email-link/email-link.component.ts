@@ -12,6 +12,8 @@ export class EmailLinkComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.activatedroute.snapshot.params.code)
+    
+    //api call to hit the verifed customer api
 this.api.createUserFinal(this.activatedroute.snapshot.params.code).subscribe(res=>console.log(res))
     
   }
