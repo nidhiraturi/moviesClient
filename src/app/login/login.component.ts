@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   //function to login through facebook
   login() {
-    localStorage.setItem('loginStatus', '1');
+    localStorage.setItem('typeUser', '2');
     this.fb.login()
       .then((res: LoginResponse) => {
         console.log('Logged in', res);
@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
 
   //function to login through google
   googleLogin() {
-
+    localStorage.setItem('typeUser', '2');
     console.log("in func")
     let googleAuth = gapi.auth2.getAuthInstance();
     googleAuth.then(() => {
@@ -94,12 +94,15 @@ export class LoginComponent implements OnInit {
 
     console.log(this.loginForm.value)
     this.api.getCustomers(this.loginForm.value).subscribe(res => {
-      localStorage.setItem('typeUser', res.respData.data.typeUser);
+      console.log(res);
+      console.log(res.respdata.token)
+      localStorage.setItem("token",res.respdata.token);
+      localStorage.setItem('typeUser', res.respdata.data.typeUser);
       this.api.setUser(this.loginForm.value.userName);
-      if (res.respData.data.typeUser == 1 && res.status == true) {
+      if (res.respdata.data.typeUser == 1 && res.status == true  ) {
         this.route.navigate(['admin']);
       }
-      else if (res.respData.data.typeUser == 2 && res.status == true) {
+      else if (res.respdata.data.typeUser == 2 && res.status == true && res.respdata.token==localStorage.getItem("token")) {
         console.log("done")
         localStorage.setItem('loginStatus', '1');
         this.route.navigate(['welcome']);

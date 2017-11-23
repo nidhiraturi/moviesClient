@@ -12,7 +12,11 @@ import { Observable } from 'rxjs/Observable';
 export class ExampleServiceService {
   constructor(public _http: Http) { }
 
- 
+getCustomersApi="http://192.168.13.126:8888/api/v1/getCustomer"
+uploadImageApi="http://192.168.13.126:8888/api/v1/upload/image"
+getAllCategoriesApi="http://192.168.13.126:8888/api/v1/getallcategories"
+createTempUserApi="http://192.168.13.126:8888/api/v1/createTempuser"
+createUserFinalApi="http://192.168.13.126:8888/api/v1/createuser"
 
   customer = {};
   userr: any;
@@ -22,23 +26,37 @@ export class ExampleServiceService {
 
 //function to get all the customers
   getCustomers(a): Observable<any> {
+
     let headers = new Headers();
     headers.append('Content-Type', 'application/json')
     let options = new RequestOptions({ headers: headers });
     console.log(a)
-    return this._http.post('http://localhost:8888/api/v1/getCustomer', a, options).map(
-      data => data.json()
+    return this._http.post(this.getCustomersApi, a, options).map(
+      data => data.json(),
+      
     );
+    
   }
 
-  getProducts(): Observable<any> {
-    return this._http.get('http://localhost:8888/api/v1/getallproducts').map(
-      data => data.json()
+  uploadImage(imageF)
+  {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json')
+    let options = new RequestOptions({ headers: headers });
+    console.log("hello",imageF)
+    let image = {
+      "image" : imageF
+    }
+    return this._http.post(this.uploadImageApi, image, options).map(
+      data => data.json(),
+      
     );
+
   }
+  
 
   getCategory(): Observable<any> {
-    return this._http.get('http://localhost:8888/api/v1/getallcategories').map(
+    return this._http.get(this.getAllCategoriesApi).map(
       data => data.json()
     );
   }
@@ -54,7 +72,7 @@ export class ExampleServiceService {
     let options = new RequestOptions({ headers: headers });
 
 
-    return this._http.post('http://localhost:8888/api/v1/createTempuser', form, options).map(data => { });
+    return this._http.post(this.createTempUserApi, form, options).map(data => { data.json()});
   }
 
   //create verified user
@@ -69,7 +87,7 @@ export class ExampleServiceService {
         let options = new RequestOptions({ headers: headers });
     
     
-        return this._http.post('http://localhost:8888/api/v1/createuser' , codeobj, options).map(data =>data.json()
+        return this._http.post(this.createUserFinalApi , codeobj, options).map(data =>data.json()
         );
       }
 

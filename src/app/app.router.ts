@@ -16,6 +16,7 @@ import { EmailLinkComponent } from './email-link/email-link.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { MovieComponent } from './movie/movie.component';
 import { TvSeriesComponent } from './tv-series/tv-series.component';
+import { ImageformComponent } from './imageform/imageform.component';
 export const appRoutes: Routes = [
 
 
@@ -33,4 +34,4 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 
 
 
-// 
+//, canActivate: [AuthGuard], data: [{ typeUser: '2' }]

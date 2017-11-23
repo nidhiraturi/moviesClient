@@ -275,7 +275,9 @@ getMovieById(movieId)
 func(data){
   this.movies = data
 }
-movies1 = [];
+movies1;
+
+//to get movie by id
 getMovieById1(movieId)
 {
   console.log(this.movies)

@@ -1,10 +1,33 @@
-/*
+/* 
 /* Created by Filipe Pina
  * Specific styles of signin, register, component
  */
 /*
  * General styles
  */
+ /* .notice {
+    padding: 15px;
+    background-color: #fafafa;
+    border-left: 6px solid #7f7f84;
+    margin-bottom: 10px;
+    -webkit-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+       -moz-box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+            box-shadow: 0 5px 8px -6px rgba(0,0,0,.2);
+} */
+/* .notice-sm {
+    padding: 10px;
+    font-size: 80%;
+}
+.notice-lg {
+    padding: 35px;
+    font-size: large;
+}
+.notice-success {
+    border-color: #80D651;
+}
+.notice-success>strong {
+    color: #80D651;
+}
  #playground-container {
     height: 500px;
     overflow: hidden !important;
@@ -50,14 +73,14 @@ input::-webkit-input-placeholder {
 .main-login{
  	background-color: #fff;
     /* shadows and rounded borders */
-    -moz-border-radius: 2px;
+    /* -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
     border-radius: 2px;
     -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 
-}
+} 
 .form-control {
     height: auto!important;
 padding: 8px 12px !important;
@@ -118,11 +141,11 @@ span.input-group-addon i {
 .bg
 {
     background-color:#ADD8E6;
-}
+} */
 /* css for social login */
 
 
-body{
+/* body{
     padding: 50px;
 }
 
@@ -261,5 +284,5 @@ body{
     color                   : #fff;
     border                  : 1px solid #007bb7;
 
-}
+} */
 

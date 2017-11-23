@@ -1,13 +1,15 @@
 <app-nav></app-nav>
-<button id="btn-fbsignup" class="btn-facebook" (click)="login()" ><i class="icon-facebook">Facebook Login</i>
-	
-  </button>
+<div class="container">
+		<div class="notice notice-success">
+			<strong>Please verify the email first then LOGIN</strong>
+		</div>
+		</div>
 
-  <button id="btn-fbsignup" class="btn-facebook" (click)="googleLogin()" ><i class="icon-facebook">Google Login</i>
+
+  
 	
-  </button>
-  <!-- ----------------social login buttons--------------------- -->
-  <!-- <div class="container-fluid">
+
+  <div class="container-fluid">
     <div class="row">
 		<div class="sicon">
 
@@ -17,27 +19,18 @@
 				</div>
 			</div>
      
-			<div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 text-center">
-				<div class="icon-circle">
-					<a href="#" class="itwittter" title="Twitter"><i class="fa fa-twitter"></i></a>
-				</div>
-			</div>
+			
       
 			<div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 text-center">
 				<div class="icon-circle">
-					<a href="#" class="igoogle" title="Google+"><i class="fa fa-google-plus"></i></a>
+					<button class="igoogle"  (click)="googleLogin()" title="Google+"><i class="fa fa-google-plus"></i></button>
 				</div>
 			</div>
       
-			<div class="col-lg-1 col-md-1 col-sm-2 col-xs-3 text-center">
-				<div class="icon-circle">
-					<a href="#" class="iLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a>
-				</div>
-			</div>
-
+			
 		</div>
 	</div>
-</div> -->
+</div> 
 
 <body class="bg">
 		<div class="container">
